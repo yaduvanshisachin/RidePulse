@@ -4,3 +4,33 @@ server:
 spring:
   application:
     name: ride-service
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ride_service_db
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+            hibernate:
+            format_sql: true
+
+    kafka:
+        bootstrap-servers: localhost:9092
+        producer:
+            key-serializer: org.apache.kafka.common.serialization.StringSerializer
+            value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+#        consumer:
+#          group-id: ride-service-group
+#          auto-offset-reset: earliest
+
+  management:
+    endpoints:
+      web:
+        exposure:
+          include: "*"
