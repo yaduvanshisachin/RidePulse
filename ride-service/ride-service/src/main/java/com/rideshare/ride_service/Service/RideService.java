@@ -129,7 +129,7 @@ public class RideService {
     }
 
     public List<RideResponse> getRidesByRiderId(String riderId) {
-        return rideRepository.findByRiderIdOrderByCreatedDesc(riderId)
+        return rideRepository.findByRiderIdOrderByCreatedAtDesc(riderId)
                 .stream()
                 .map(ride -> modelMapper.map(ride, RideResponse.class))
                 .collect(Collectors.toList());

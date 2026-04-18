@@ -2,6 +2,13 @@ package com.rideshare.matching_service.dto;
 
 //Response received from Location service
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class NearByDriverResponse {
     private String driverId;
     private double latitude;

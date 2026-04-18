@@ -28,7 +28,7 @@ public class LocationController {
     }
 
     // Matching service calls this when ride is requested to find nearby drivers
-    @GetMapping
+    @GetMapping("/drivers/nearby")
     public ResponseEntity<List<NearbyDriverResponse>> getNearbyDrivers(
             @RequestParam double latitude,
             @RequestParam double longitude,

@@ -10,6 +10,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Data
+@Entity
 @Table(name = "rides")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -22,7 +23,6 @@ public class Ride {
     private String riderId;
 
     //who accepted the ride request
-    @Column(nullable = false)
     private String driverId;
 
     @Column(nullable = false)
@@ -43,7 +43,7 @@ public class Ride {
     @Column(nullable = false)
     private String dropAddress;
 
-    //Ride status - tracks the lifecyle of the ride (REQUESTED, ACCEPTED, IN_PROGRESS, COMPLETED, CANCELLED)
+    //Ride status - tracks the lifecycle of the ride (REQUESTED, ACCEPTED, IN_PROGRESS, COMPLETED, CANCELLED)
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
     private RideStatus status;
